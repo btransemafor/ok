@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ambitious, but Present</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1d2340;
+  --paper: #fbf6f3;
+  --dawn: #ffb48a;
+  --rose: #f08aa0;
+  --sage: #8fb8a3;
+  --lilac: #a9a3e0;
+  --card: #ffffff;
+  --line: #e6dde0;
+  --ink-soft: #3a4160;
+  --shadow: 0 8px 32px rgba(29, 35, 64, 0.06);
+  --radius-lg: 32px;
+  --radius-md: 20px;
+  --radius-sm: 18px;
+  --radius-pill: 999px;
+  --max-line: 62ch;
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f0ebe6;
+    --paper: #161820;
+    --card: #1e2129;
+    --line: #2c303c;
+    --ink-soft: #b8b4c8;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--paper);
+  min-height: 100dvh;
+  padding:
+    max(1.25rem, env(safe-area-inset-top))
+    max(1.25rem, env(safe-area-inset-right))
+    max(2rem, env(safe-area-inset-bottom))
+    max(1.25rem, env(safe-area-inset-left));
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+button:focus-visible,
+a:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 3px;
+}
+.wrap {
+  width: min(1080px, 100%);
+  margin-inline: auto;
+}
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  padding: clamp(3rem, 10vw, 6.5rem) 0 clamp(2.5rem, 6vw, 4rem);
+  overflow: hidden;
+}
+.hero-sun {
+  position: absolute;
+  top: -8%;
+  right: -6%;
+  width: clamp(180px, 38vw, 420px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%,
+    #fff5e6 0%,
+    var(--dawn) 28%,
+    var(--rose) 58%,
+    var(--lilac) 100%);
+  opacity: 0.85;
+  transform: translateY(40px);
+  animation: sunRise 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-sun { transform: none; animation: none; }
+}
+@keyframes sunRise {
+  to { transform: translateY(0); }
+}
+.hero-content { position: relative; z-index: 1; }
+.hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(3.25rem, 11vw, 8.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.hero h1 .but {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  padding-left: 0.12em;
+  margin-top: 0.08em;
+  color: var(--ink-soft);
+}
+.hero-lead {
+  max-width: var(--max-line);
+  margin-top: 1.75rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  color: var(--ink-soft);
+}
+.ratio-bar {
+  margin-top: 2.5rem;
+  max-width: 420px;
+}
+.ratio-track {
+  display: flex;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  background: var(--line);
+}
+.ratio-track span:nth-child(1) { flex: 5; background: var(--ink); }
+.ratio-track span:nth-child(2) { flex: 3; background: var(--dawn); }
+.ratio-track span:nth-child(3) { flex: 2; background: var(--sage); }
+.ratio-note {
+  margin-top: 0.65rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  max-width: 36ch;
+}
+/* ---------- SECTIONS ---------- */
+section {
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+}
+.section-label {
+  font-family: var(--font-serif);
+  font-size: clamp(1.55rem, 3.5vw, 2rem);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+}
+/* ---------- PILLARS ---------- */
+.pillars {
+  display: grid;
+  grid-template-columns: 5fr 3fr 2fr;
+  gap: 1rem;
+}
+.pillar {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 1.6rem 1.4rem 1.8rem;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+}
+.pillar-pct {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.pillar h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+.pillar p {
+  font-size: 0.92rem;
+  opacity: 0.9;
+  line-height: 1.55;
+}
+.pillar-build {
+  background: #1a1f35;
+  color: #f5f0eb;
+}
+.pillar-build .pillar-pct { color: var(--dawn); }
+.pillar-present {
+  background: linear-gradient(145deg, #ffc9a0 0%, #f08aa0 100%);
+  color: #2a2030;
+}
+.pillar-present .pillar-pct { color: #5a3040; }
+.pillar-care {
+  background: linear-gradient(145deg, #a8cbb8 0%, #7aa892 100%);
+  color: #1e2e28;
+}
+.pillar-care .pillar-pct { color: #1e3a30; }
+@media (max-width: 820px) {
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .pillar-build { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) {
+  .pillars { grid-template-columns: 1fr; }
+}
+/* ---------- DAY ---------- */
+.day-band {
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg,
+    var(--dawn) 0%,
+    #f5c978 25%,
+    var(--sage) 55%,
+    var(--lilac) 100%);
+  margin-bottom: 1.75rem;
+  opacity: 0.9;
+}
+.day-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.day-card {
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1.2rem 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.day-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+.day-time {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.9rem;
+}
+.day-card ul {
+  list-style: none;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+.day-card li + li { margin-top: 0.45rem; }
+.day-card li::before {
+  content: "·";
+  margin-right: 0.45em;
+  color: var(--rose);
+  font-weight: 600;
+}
+.day-start { background: linear-gradient(160deg, #ffe8d4, #ffd4b8); border-color: transparent; }
+.day-build { background: linear-gradient(160deg, #fff4d6, #f5e0a8); border-color: transparent; }
+.day-exp { background: linear-gradient(160deg, #d8ecdf, #b8d9c4); border-color: transparent; }
+.day-slow { background: linear-gradient(160deg, #e4e0f5, #cfc8eb); border-color: transparent; }
+.day-note {
+  margin-top: 1.5rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--rose);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left-width: 4px;
+  border-left-color: var(--rose);
+  max-width: 58ch;
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+}
+@media (max-width: 900px) {
+  .day-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 540px) {
+  .day-grid { grid-template-columns: 1fr; }
+}
+/* ---------- WEEK ---------- */
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.65rem;
+}
+.week-day {
+  border-radius: var(--radius-sm);
+  padding: 1rem 0.7rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  text-align: center;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.week-day strong {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.week-day span {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+.week-sat {
+  border-color: var(--dawn);
+  border-width: 2px;
+  background: linear-gradient(180deg, #fff8f2, var(--card));
+}
+.week-sun {
+  border-color: var(--lilac);
+  border-width: 2px;
+  background: linear-gradient(180deg, #f6f4fc, var(--card));
+}
+.protect-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.protect-card {
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.3rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+.protect-card h4 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.45rem;
+}
+.protect-card p {
+  font-size: 0.94rem;
+  color: var(--ink-soft);
+}
+.protect-sat { border-top: 3px solid var(--dawn); }
+.protect-sun { border-top: 3px solid var(--lilac); }
+@media (max-width: 780px) {
+  .week-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 520px) {
+  .week-grid { grid-template-columns: 1fr 1fr; }
+  .protect-row { grid-template-columns: 1fr; }
+}
+/* ---------- SAVORING ---------- */
+.savor {
+  border-radius: clamp(24px, 4vw, 40px);
+  background: #1a1f35;
+  color: #f4f0eb;
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+}
+.savor .section-label { color: #f4f0eb; margin-bottom: 0.5rem; }
+.savor-intro {
+  max-width: 52ch;
+  opacity: 0.85;
+  margin-bottom: 1.6rem;
+  font-size: 0.98rem;
+}
+.savor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.9rem;
+}
+.savor-item {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.1rem;
+}
+.savor-item h4 {
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: var(--dawn);
+}
+.savor-item p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  opacity: 0.9;
+}
+.savor-note {
+  margin-top: 1.35rem;
+  font-size: 0.92rem;
+  opacity: 0.75;
+  max-width: 50ch;
+}
+@media (max-width: 820px) {
+  .savor-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .savor-grid { grid-template-columns: 1fr; }
+}
+/* ---------- PRINCIPLES ---------- */
+.principles {
+  list-style: none;
+  counter-reset: princ;
+  max-width: 58ch;
+}
+.principles li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.principles li:last-child { border-bottom: none; }
+.principles li::before {
+  counter-increment: princ;
+  content: counter(princ);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--rose);
+  line-height: 1;
+  min-width: 1.4rem;
+}
+/* ---------- EXPERIMENT + CHECK-IN ---------- */
+.two-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+.panel {
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 1.5rem 1.4rem 1.6rem;
+  box-shadow: var(--shadow);
+}
+.panel h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+.panel-sub {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.2rem;
+}
+.toggle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.toggle-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  transition: border-color 0.15s, background 0.15s;
+}
+.toggle-btn[aria-pressed="true"] {
+  border-color: var(--sage);
+  background: color-mix(in srgb, var(--sage) 18%, var(--paper));
+}
+.toggle-dot {
+  flex-shrink: 0;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  margin-top: 0.15rem;
+  transition: background 0.15s, border-color 0.15s;
+}
+.toggle-btn[aria-pressed="true"] .toggle-dot {
+  background: var(--sage);
+  border-color: var(--sage);
+}
+.toggle-label {
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.counter-block {
+  margin-top: 1.35rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: var(--paper);
+}
+.counter-num {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--ink);
+}
+.counter-msg {
+  margin-top: 0.4rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.counter-hint {
+  margin-top: 0.55rem;
+  font-size: 0.82rem;
+  opacity: 0.7;
+}
+.check-q {
+  margin-bottom: 1.15rem;
+}
+.check-q p {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+.choice-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.choice-btn {
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--line);
+  font-size: 0.88rem;
+  background: var(--paper);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.choice-btn[aria-pressed="true"] {
+  border-color: var(--lilac);
+  background: color-mix(in srgb, var(--lilac) 22%, var(--paper));
+  color: var(--ink);
+}
+.moment-label {
+  display: block;
+  font-size: 0.92rem;
+  margin-bottom: 0.4rem;
+  margin-top: 0.5rem;
+}
+.moment-area {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  resize: vertical;
+  line-height: 1.55;
+}
+.copy-btn {
+  margin-top: 0.9rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.copy-btn:hover { opacity: 0.9; }
+.copy-status {
+  display: inline-block;
+  margin-left: 0.65rem;
+  font-size: 0.85rem;
+  color: var(--sage);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.copy-status.show { opacity: 1; }
+.check-note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+@media (max-width: 720px) {
+  .two-panel { grid-template-columns: 1fr; }
+}
+/* ---------- RHYTHM ---------- */
+.rhythm-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.rhythm-card {
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.25rem;
+  background: var(--card);
+  border: 2px solid var(--line);
+  text-align: left;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  min-height: 160px;
+}
+.rhythm-card[aria-pressed="true"] {
+  border-color: var(--rose);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--rose) 25%, transparent);
+}
+.rhythm-card strong {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.45rem;
+}
+.rhythm-card span {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.rhythm-note {
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  max-width: 52ch;
+}
+@media (max-width: 700px) {
+  .rhythm-grid { grid-template-columns: 1fr; }
+}
+/* ---------- CLOSING ---------- */
+.closing {
+  position: relative;
+  padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+  text-align: center;
+  overflow: hidden;
+}
+.closing::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 55%;
+  background: radial-gradient(ellipse 80% 70% at 50% 100%,
+    color-mix(in srgb, var(--dawn) 45%, transparent) 0%,
+    transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.closing-inner { position: relative; z-index: 1; }
+.closing-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.25;
+  max-width: 18ch;
+  margin-inline: auto;
+  color: var(--ink);
+}
+.closing-vi {
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  max-width: 42ch;
+  margin-inline: auto;
+}
+.closing-body {
+  margin-top: 1.35rem;
+  max-width: 52ch;
+  margin-inline: auto;
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+}
+.closing-final {
+  margin-top: 1.6rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  font-weight: 500;
+  max-width: 36ch;
+  margin-inline: auto;
+  color: var(--ink);
+}
+footer {
+  text-align: center;
+  padding: 1.5rem 0 0.5rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  opacity: 0.8;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 1. HERO -->
+  <header class="hero">
+    <div class="hero-sun" aria-hidden="true"></div>
+    <div class="hero-content">
+      <h1>Ambitious,<span class="but">but Present.</span></h1>
+      <p class="hero-lead">Tham vọng nhưng vẫn hiện diện trong cuộc sống. Không giảm tham vọng để sống vui hơn, mà xây một nhịp sống để vừa tiến gần phiên bản mình mong muốn, vừa không bỏ lỡ những năm tháng đang trải qua.</p>
+      <div class="ratio-bar">
+        <div class="ratio-track" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <p class="ratio-note">Tỷ trọng để định hướng suy nghĩ, không phải số giờ cần theo dõi.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. BA TRỤ CỘT -->
+  <section aria-labelledby="pillars-title">
+    <h2 id="pillars-title" class="section-label">Ba trụ cột</h2>
+    <div class="pillars">
+      <article class="pillar pillar-build">
+        <div>
+          <h3>Build your future</h3>
+          <p>Career · Money · Competence</p>
+        </div>
+        <div class="pillar-pct">50%</div>
+      </article>
+      <article class="pillar pillar-present">
+        <div>
+          <h3>Experience your present</h3>
+          <p>Enjoyment · Relationships · Exploration</p>
+        </div>
+        <div class="pillar-pct">30%</div>
+      </article>
+      <article class="pillar pillar-care">
+        <div>
+          <h3>Take care of yourself</h3>
+          <p>Health · Sleep · Mental space</p>
+        </div>
+        <div class="pillar-pct">20%</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3. MỘT NGÀY LÝ TƯỞNG -->
+  <section aria-labelledby="day-title">
+    <h2 id="day-title" class="section-label">Một ngày lý tưởng</h2>
+    <div class="day-band" aria-hidden="true"></div>
+    <div class="day-grid">
+      <article class="day-card day-start">
+        <h3>Start consciously</h3>
+        <p class="day-time">06:00–08:00</p>
+        <ul>
+          <li>06:00 thức dậy, uống nước, vệ sinh cá nhân</li>
+          <li>06:30 đi bộ hoặc vận động nhẹ</li>
+          <li>07:00 ăn sáng không điện thoại</li>
+          <li>07:30 chọn 1–3 việc quan trọng nhất</li>
+        </ul>
+      </article>
+      <article class="day-card day-build">
+        <h3>Build your future</h3>
+        <p class="day-time">08:00–17:30</p>
+        <ul>
+          <li>Đang đi làm thì ưu tiên công việc chính</li>
+          <li>60–90 phút Deep Work (SQL, Data Analytics, project thực tế)</li>
+          <li>20–30 phút English</li>
+          <li>Nghỉ giải lao thực sự</li>
+        </ul>
+      </article>
+      <article class="day-card day-exp">
+        <h3>Experience your life</h3>
+        <p class="day-time">17:30–21:00</p>
+        <ul>
+          <li>17:30 tập thể dục / đi bộ</li>
+          <li>18:30 nấu ăn, ăn tối</li>
+          <li>19:30 thời gian tự do (sách, bạn bè, phim, sở thích)</li>
+          <li>20:30 học nhẹ nếu thực sự muốn</li>
+        </ul>
+      </article>
+      <article class="day-card day-slow">
+        <h3>Slow down</h3>
+        <p class="day-time">21:00–22:30</p>
+        <ul>
+          <li>Hạn chế mạng xã hội</li>
+          <li>Không so sánh bản thân</li>
+          <li>5 phút reflection</li>
+          <li>Ngủ đủ, giờ ngủ ổn định</li>
+        </ul>
+      </article>
+    </div>
+    <aside class="day-note">
+      Một nguyên tắc quan trọng. Nếu hôm đó đã làm việc 8 tiếng và rất mệt, không cần ép mình học thêm 2 tiếng. Deep Work là công cụ để tiến bộ, không phải hình phạt dành cho những người chưa đủ thành công.
+    </aside>
+  </section>
+
+  <!-- DEEP WORK TECHNIQUES -->
+  <section aria-labelledby="deep-title">
+    <h2 id="deep-title" class="section-label">Deep Work – công cụ để tiến bộ</h2>
+    <p style="max-width:var(--max-line);color:var(--ink-soft);margin-bottom:1.5rem;">
+      Deep Work là trạng thái tập trung không bị phân tâm, đẩy khả năng nhận thức đến giới hạn để tạo giá trị mới. Với Data Analyst, đây là thời gian viết query phức tạp, exploratory analysis, học kỹ thuật mới hoặc xây project thực tế.
+    </p>
+
+    <div class="day-grid" style="margin-bottom:1.75rem;grid-template-columns:repeat(3,1fr);">
+      <article class="day-card" style="background:linear-gradient(145deg,#2a3148,#1a1f35);color:#f4f0eb;border-color:transparent;">
+        <h3 style="color:#ffb48a;">Rhythmic (khuyến nghị)</h3>
+        <p style="font-size:0.92rem;opacity:0.9;margin-top:0.4rem;">Cố định 60–90 phút cùng giờ mỗi ngày. Dễ duy trì nhất với lịch làm việc thông thường.</p>
+      </article>
+      <article class="day-card" style="background:linear-gradient(145deg,#ffe8d4,#ffd4b8);color:#2a2030;border-color:transparent;">
+        <h3>Bimodal</h3>
+        <p style="font-size:0.92rem;opacity:0.9;margin-top:0.4rem;">Dành nguyên một ngày hoặc vài ngày cho depth, phần còn lại làm shallow work.</p>
+      </article>
+      <article class="day-card" style="background:linear-gradient(145deg,#d8ecdf,#b8d9c4);color:#1e2e28;border-color:transparent;">
+        <h3>Journalistic</h3>
+        <p style="font-size:0.92rem;opacity:0.9;margin-top:0.4rem;">Nhảy vào deep work bất cứ khi nào có khoảng trống. Cần thói quen focus tốt.</p>
+      </article>
+    </div>
+
+    <div class="day-grid" style="margin-bottom:1.5rem;">
+      <article class="day-card" style="background:var(--card);">
+        <h3>Ritual bắt đầu</h3>
+        <ul>
+          <li>Đóng tab không cần thiết</li>
+          <li>Để điện thoại sang chỗ khác</li>
+          <li>Tắt thông báo Slack / Teams</li>
+          <li>Viết 1–3 câu hỏi cho phiên làm việc</li>
+          <li>Chỉ mở đúng tool cần dùng</li>
+        </ul>
+      </article>
+      <article class="day-card" style="background:var(--card);">
+        <h3>Trong phiên Deep Work</h3>
+        <ul>
+          <li>Chọn đúng 1 mục tiêu cụ thể</li>
+          <li>60–90 phút là đủ tốt</li>
+          <li>Ghi ý lạc đề ra giấy (parking lot)</li>
+          <li>Có thể dùng timer 50/10 nếu dễ mất focus</li>
+          <li>Khi đã flow thì bỏ timer</li>
+        </ul>
+      </article>
+      <article class="day-card" style="background:var(--card);">
+        <h3>Kết thúc phiên</h3>
+        <ul>
+          <li>Ghi nhanh đã làm được gì</li>
+          <li>Ghi điểm tiếp tục lần sau</li>
+          <li>Shutdown ritual: tắt máy / đóng hết</li>
+          <li>Nghỉ thật (đi bộ, không màn hình)</li>
+          <li>Không ép thêm nếu đã mệt</li>
+        </ul>
+      </article>
+      <article class="day-card" style="background:linear-gradient(160deg,#e4e0f5,#cfc8eb);">
+        <h3>Cho Data Analyst</h3>
+        <ul>
+          <li>Viết / tối ưu SQL phức tạp</li>
+          <li>Exploratory analysis có mục tiêu</li>
+          <li>Học window functions, modeling</li>
+          <li>Xây project portfolio thực tế</li>
+          <li>Không phải: trả lời chat, chỉnh format nhỏ</li>
+        </ul>
+      </article>
+    </div>
+
+    <aside class="day-note" style="max-width:58ch;">
+      Bắt đầu nhẹ: 45–60 phút, 3–4 ngày/tuần đã là tốt. Não chỉ duy trì được khoảng 1–4 giờ deep work chất lượng mỗi ngày. Deep Work là công cụ, không phải cuộc đua số giờ.
+    </aside>
+  </section>
+
+  <!-- 4. WEEKLY PLAN -->
+  <section aria-labelledby="week-title">
+    <h2 id="week-title" class="section-label">Weekly plan</h2>
+    <div class="week-grid">
+      <div class="week-day"><strong>Monday</strong><span>Set direction, lập mục tiêu tuần</span></div>
+      <div class="week-day"><strong>Tuesday</strong><span>Deep work, phát triển chuyên môn</span></div>
+      <div class="week-day"><strong>Wednesday</strong><span>Learning + Social connection</span></div>
+      <div class="week-day"><strong>Thursday</strong><span>Deep work, thực hành project</span></div>
+      <div class="week-day"><strong>Friday</strong><span>Review progress + Relax</span></div>
+      <div class="week-day week-sat"><strong>Saturday</strong><span>Explore, đi chơi, trải nghiệm</span></div>
+      <div class="week-day week-sun"><strong>Sunday</strong><span>Slow living, nghỉ ngơi, tái tạo năng lượng</span></div>
+    </div>
+    <div class="protect-row">
+      <div class="protect-card protect-sat">
+        <h4>Bảo vệ Saturday</h4>
+        <p>Không biến mọi hoạt động thành cơ hội phát triển bản thân. Khám phá nơi mới, thử món mới, gặp bạn, đi dạo.</p>
+      </div>
+      <div class="protect-card protect-sun">
+        <h4>Bảo vệ Sunday</h4>
+        <p>Không cần thấy tội lỗi khi không học SQL, English, làm project. Đây là ngày phục hồi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. THE ART OF SAVORING -->
+  <section aria-labelledby="savor-title">
+    <div class="savor">
+      <h2 id="savor-title" class="section-label">The Art of Savoring</h2>
+      <p class="savor-intro">Mỗi ngày chọn một hoạt động bình thường và thực hiện nó với sự chú ý hoàn toàn. Đây là phần cần được nhấn mạnh nhất về mặt cảm xúc.</p>
+      <div class="savor-grid">
+        <div class="savor-item">
+          <h4>Morning coffee</h4>
+          <p>Không vừa uống vừa lướt điện thoại. Cảm nhận hương vị và không gian.</p>
+        </div>
+        <div class="savor-item">
+          <h4>Evening walk</h4>
+          <p>Không cần podcast hay học tiếng Anh. Quan sát cuộc sống.</p>
+        </div>
+        <div class="savor-item">
+          <h4>Having dinner</h4>
+          <p>Tập trung vào món ăn, không ăn chỉ để hoàn thành nhiệm vụ.</p>
+        </div>
+        <div class="savor-item">
+          <h4>Before sleeping</h4>
+          <p>Nghĩ về một điều biết ơn hoặc vui vẻ.</p>
+        </div>
+      </div>
+      <p class="savor-note">Mỗi ngày chỉ cần chọn một, đừng biến thành checklist bắt buộc.</p>
+    </div>
+  </section>
+
+  <!-- 6. BẢY NGUYÊN TẮC -->
+  <section aria-labelledby="princ-title">
+    <h2 id="princ-title" class="section-label">Bảy nguyên tắc</h2>
+    <ol class="principles">
+      <li>Không so sánh tiến độ cuộc đời mình với người khác mỗi ngày.</li>
+      <li>Không hy sinh giấc ngủ chỉ để hoàn thành một mục tiêu học tập không cấp thiết.</li>
+      <li>Không dùng toàn bộ thời gian rảnh để kiếm tiền hoặc phát triển kỹ năng.</li>
+      <li>Không mang cảm giác tội lỗi vào thời gian nghỉ ngơi.</li>
+      <li>Mỗi tuần có ít nhất một trải nghiệm ngoài routine.</li>
+      <li>Dành thời gian thực sự cho các mối quan hệ.</li>
+      <li>Đo lường tiến bộ bằng kết quả và năng lực thực tế, không chỉ bằng số giờ làm việc.</li>
+    </ol>
+  </section>
+
+  <!-- 7. 14-DAY + CHECK-IN -->
+  <section aria-labelledby="exp-title">
+    <h2 id="exp-title" class="section-label">Thử 14 ngày &amp; Weekly check-in</h2>
+    <div class="two-panel">
+      <div class="panel">
+        <h3>14-day experiment</h3>
+        <p class="panel-sub">Ba thói quen cốt lõi. Không cần 3/3 mỗi ngày.</p>
+        <div class="toggle-list" id="exp-toggles">
+          <button type="button" class="toggle-btn" data-key="dw" aria-pressed="false">
+            <span class="toggle-dot" aria-hidden="true"></span>
+            <span class="toggle-label">Deep Work 60 phút cho mục tiêu nghề nghiệp</span>
+          </button>
+          <button type="button" class="toggle-btn" data-key="joy" aria-pressed="false">
+            <span class="toggle-dot" aria-hidden="true"></span>
+            <span class="toggle-label">Ít nhất 30 phút tận hưởng không điện thoại</span>
+          </button>
+          <button type="button" class="toggle-btn" data-key="sun" aria-pressed="false">
+            <span class="toggle-dot" aria-hidden="true"></span>
+            <span class="toggle-label">Chủ nhật 10 phút nhìn lại tuần</span>
+          </button>
+        </div>
+        <div class="counter-block">
+          <div class="counter-num" id="exp-count">0/3</div>
+          <p class="counter-msg" id="exp-msg">Bắt đầu nhẹ nhàng thôi.</p>
+          <p class="counter-hint">Không cần 3/3 mỗi ngày</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>My weekly check-in</h3>
+        <p class="panel-sub">10 phút, mỗi tối Chủ nhật</p>
+        <div id="check-qs">
+          <div class="check-q" data-q="1">
+            <p>1. Did I make meaningful progress towards my career goals?</p>
+            <div class="choice-row">
+              <button type="button" class="choice-btn" data-val="Yes" aria-pressed="false">Yes</button>
+              <button type="button" class="choice-btn" data-val="Partially" aria-pressed="false">Partially</button>
+              <button type="button" class="choice-btn" data-val="No" aria-pressed="false">No</button>
+            </div>
+          </div>
+          <div class="check-q" data-q="2">
+            <p>2. Did I enjoy at least a few ordinary moments this week?</p>
+            <div class="choice-row">
+              <button type="button" class="choice-btn" data-val="Yes" aria-pressed="false">Yes</button>
+              <button type="button" class="choice-btn" data-val="Partially" aria-pressed="false">Partially</button>
+              <button type="button" class="choice-btn" data-val="No" aria-pressed="false">No</button>
+            </div>
+          </div>
+          <div class="check-q" data-q="3">
+            <p>3. Did I spend meaningful time with people I care about?</p>
+            <div class="choice-row">
+              <button type="button" class="choice-btn" data-val="Yes" aria-pressed="false">Yes</button>
+              <button type="button" class="choice-btn" data-val="Partially" aria-pressed="false">Partially</button>
+              <button type="button" class="choice-btn" data-val="No" aria-pressed="false">No</button>
+            </div>
+          </div>
+          <div class="check-q" data-q="4">
+            <p>4. Did I take care of my physical and mental energy?</p>
+            <div class="choice-row">
+              <button type="button" class="choice-btn" data-val="Yes" aria-pressed="false">Yes</button>
+              <button type="button" class="choice-btn" data-val="Partially" aria-pressed="false">Partially</button>
+              <button type="button" class="choice-btn" data-val="No" aria-pressed="false">No</button>
+            </div>
+          </div>
+          <div class="check-q" data-q="5">
+            <p>5. Did I spend too much time comparing myself with others?</p>
+            <div class="choice-row">
+              <button type="button" class="choice-btn" data-val="Rarely" aria-pressed="false">Rarely</button>
+              <button type="button" class="choice-btn" data-val="Sometimes" aria-pressed="false">Sometimes</button>
+              <button type="button" class="choice-btn" data-val="Too often" aria-pressed="false">Too often</button>
+            </div>
+          </div>
+        </div>
+        <label class="moment-label" for="moment">One moment I want to remember this week</label>
+        <textarea id="moment" class="moment-area" rows="3" placeholder="Viết một khoảnh khắc…"></textarea>
+        <div>
+          <button type="button" class="copy-btn" id="copy-btn">Copy my reflection</button>
+          <span class="copy-status" id="copy-status" aria-live="polite"></span>
+        </div>
+        <p class="check-note">Không cần đạt 5/5 mỗi tuần.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CHỌN NHỊP SỐNG -->
+  <section aria-labelledby="rhythm-title">
+    <h2 id="rhythm-title" class="section-label">Chọn nhịp sống 1–2 năm tới</h2>
+    <div class="rhythm-grid" id="rhythm-group" role="group" aria-label="Chọn một hướng">
+      <button type="button" class="rhythm-card" data-val="A" aria-pressed="false">
+        <strong>A. Career-first</strong>
+        <span>70% năng lượng cho sự nghiệp, vẫn bảo vệ thời gian sống.</span>
+      </button>
+      <button type="button" class="rhythm-card" data-val="B" aria-pressed="false">
+        <strong>B. Balanced</strong>
+        <span>Sự nghiệp và tận hưởng ưu tiên tương đương.</span>
+      </button>
+      <button type="button" class="rhythm-card" data-val="C" aria-pressed="false">
+        <strong>C. Financial independence-first</strong>
+        <span>Tăng thu nhập, tích lũy tài sản, không đánh mất sức khỏe và trải nghiệm.</span>
+      </button>
+    </div>
+    <p class="rhythm-note">Không có lựa chọn nào sai. Plan nên phản ánh ưu tiên thật sự của em, không phải một lifestyle lý tưởng trên Pinterest.</p>
+  </section>
+
+  <!-- 9. KẾT -->
+  <section class="closing">
+    <div class="closing-inner">
+      <p class="closing-quote">“Don’t make your twenties a waiting room for your future.”</p>
+      <p class="closing-vi">Đừng biến tuổi 20 thành phòng chờ để đợi đến ngày thành công mới bắt đầu tận hưởng cuộc sống.</p>
+      <p class="closing-body">Hãy học SQL thật tốt, xây dựng sự nghiệp, kiếm tiền, tích lũy tài sản. Nhưng cũng hãy có những buổi chiều đi dạo không mục đích, những cuộc trò chuyện không vội vàng, những bữa ăn ngon và những ngày chẳng có thành tựu gì đặc biệt.</p>
+      <p class="closing-final">Trở thành người có một cuộc đời tốt đẹp, chứ không chỉ có một CV đẹp.</p>
+    </div>
+  </section>
+
+  <footer>Sunday weekly life review</footer>
+</div>
+
+<script>
+(function () {
+  const STORAGE_KEY = "abp-state-v1";
+
+  function safeGet() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function safeSet(data) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {}
+  }
+
+  let state = safeGet();
+  if (!state.toggles) state.toggles = {};
+  if (!state.check) state.check = {};
+  if (!state.rhythm) state.rhythm = null;
+  if (typeof state.moment !== "string") state.moment = "";
+
+  /* ----- 14-day toggles ----- */
+  const msgs = {
+    0: "Bắt đầu nhẹ nhàng thôi.",
+    1: "Một bước đã là tốt rồi.",
+    2: "Đang giữ nhịp rất đẹp.",
+    3: "Đủ rồi, đừng ép thêm."
+  };
+
+  function updateCounter() {
+    const keys = ["dw", "joy", "sun"];
+    let n = 0;
+    keys.forEach(k => { if (state.toggles[k]) n++; });
+    const el = document.getElementById("exp-count");
+    const msg = document.getElementById("exp-msg");
+    if (el) el.textContent = n + "/3";
+    if (msg) msg.textContent = msgs[n] || msgs[0];
+  }
+
+  document.querySelectorAll("#exp-toggles .toggle-btn").forEach(btn => {
+    const key = btn.dataset.key;
+    if (state.toggles[key]) {
+      btn.setAttribute("aria-pressed", "true");
+    }
+    btn.addEventListener("click", () => {
+      const pressed = btn.getAttribute("aria-pressed") === "true";
+      const next = !pressed;
+      btn.setAttribute("aria-pressed", String(next));
+      state.toggles[key] = next;
+      safeSet(state);
+      updateCounter();
+    });
+  });
+  updateCounter();
+
+  /* ----- Weekly check-in ----- */
+  document.querySelectorAll("#check-qs .check-q").forEach(qEl => {
+    const q = qEl.dataset.q;
+    const saved = state.check[q];
+    qEl.querySelectorAll(".choice-btn").forEach(btn => {
+      if (saved && btn.dataset.val === saved) {
+        btn.setAttribute("aria-pressed", "true");
+      }
+      btn.addEventListener("click", () => {
+        qEl.querySelectorAll(".choice-btn").forEach(b => b.setAttribute("aria-pressed", "false"));
+        btn.setAttribute("aria-pressed", "true");
+        state.check[q] = btn.dataset.val;
+        safeSet(state);
+      });
+    });
+  });
+
+  const momentEl = document.getElementById("moment");
+  if (momentEl) {
+    momentEl.value = state.moment || "";
+    momentEl.addEventListener("input", () => {
+      state.moment = momentEl.value;
+      safeSet(state);
+    });
+  }
+
+  const copyBtn = document.getElementById("copy-btn");
+  const copyStatus = document.getElementById("copy-status");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", async () => {
+      const lines = [];
+      lines.push("My weekly check-in");
+      lines.push("");
+      const labels = {
+        1: "Did I make meaningful progress towards my career goals?",
+        2: "Did I enjoy at least a few ordinary moments this week?",
+        3: "Did I spend meaningful time with people I care about?",
+        4: "Did I take care of my physical and mental energy?",
+        5: "Did I spend too much time comparing myself with others?"
+      };
+      for (let i = 1; i <= 5; i++) {
+        const ans = state.check[String(i)] || "—";
+        lines.push(i + ". " + labels[i]);
+        lines.push("   → " + ans);
+      }
+      lines.push("");
+      lines.push("One moment I want to remember this week:");
+      lines.push(state.moment || "(chưa ghi)");
+      const text = lines.join("\n");
+      try {
+        await navigator.clipboard.writeText(text);
+        if (copyStatus) {
+          copyStatus.textContent = "Đã copy";
+          copyStatus.classList.add("show");
+          setTimeout(() => copyStatus.classList.remove("show"), 2000);
+        }
+      } catch (e) {
+        if (copyStatus) {
+          copyStatus.textContent = "Không copy được";
+          copyStatus.classList.add("show");
+        }
+      }
+    });
+  }
+
+  /* ----- Rhythm choice ----- */
+  document.querySelectorAll("#rhythm-group .rhythm-card").forEach(btn => {
+    if (state.rhythm && btn.dataset.val === state.rhythm) {
+      btn.setAttribute("aria-pressed", "true");
+    }
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#rhythm-group .rhythm-card").forEach(b => b.setAttribute("aria-pressed", "false"));
+      btn.setAttribute("aria-pressed", "true");
+      state.rhythm = btn.dataset.val;
+      safeSet(state);
+    });
+  });
+})();
+</script>
+</body>
+</html>
